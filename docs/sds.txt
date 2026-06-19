@@ -1,0 +1,308 @@
+BSSE FINAL PROJECT
+SDS
+DINEDESIGN: SAAS PLATFORM FOR RESTAURANT WEBSITE TEMPLATES
+Project Advisor
+Mr, Khizer Hayat
+Presented by:
+Group ID: F25SE027
+Registration #
+Student Name
+Primary Responsibility
+L1F22BSSE0006
+Mohid Saleem Bhatti
+Backend Development, API Server, Payment Integrations
+L1F22BSSE0012
+Amir Safdar
+Mobile App Development (React Native), Notification System
+L1F22BSSE0022
+Muhammad Fahad Azhar
+Website Builder, Admin Dashboard, UI/UX Design
+Faculty of Information Technology & Computer Science
+University of Central Punjab
+Software Design Specification
+SDP Phase II
+Dine Design:
+SaaS Platform for Restaurant Website Templates Advisor: <Mr. Khizer Hayat>
+Team: F25SE027
+Member Name
+Primary Responsibility
+L1F22BSSE0006
+Backend Development, API Server, Payment Integrations
+L1F22BSSE0012
+Mobile App Development (React Native / Flutter), Notification System
+L1F22BSSE0022
+Website Builder, Admin Dashboard, UI/UX Design, AI Branding Module
+Table of Contents
+Abstract1
+1.Introduction1
+1.1Product1
+1.2Background1
+1.3Objective(s)/Aim(s)/Target(s)1
+1.4Scope1
+1.5Business Goals2
+1.6Document Conventions2
+1.7Miscellaneous2
+2.Overall Description3
+2.1Product Features3
+2.2Functional Description3
+2.3User Classes and Characteristics3
+2.4Design and Implementation Constraints3
+2.5Assumptions and Dependencies3
+3.Technical Architecture4
+3.1Application and Data Architecture5
+3.2Component Interactions and Collaborations6
+3.3Design Reuse and Design Patterns10
+3.4Technology Architecture10
+4.Screenshots/Prototype11
+4.1Workflow11
+4.2Screens18
+4.3Additional Information22
+5.Other Design Details22
+6.Revised Project Plan22
+7.References23
+Revision History
+Name
+Date
+Reason For Changes
+Version
+SE-05
+07-01-2026
+SDS Creation Template
+2.0
+Previous Phases Feedback
+Idea Defence Feedback
+Abstract
+DineDesign is a multi-tenant SaaS platform designed to help restaurants in Pakistan establish a complete digital presence. The system enables restaurant owners to create websites and mobile apps using ready-made templates, manage menus, orders, reservations, payments, and promotions, and receive AI-based branding suggestions. This SDS translates the requirements defined in the SRS into a concrete software design by defining system architecture, components, interactions, technologies, and workflows.
+Introduction
+Product
+DineDesign is a cloud-based SaaS system that allows restaurants to independently manage their online operations without relying on high-commission aggregator platforms. The system provides website building, online ordering, reservations, local payment integration, notifications, and analytics.
+Background
+Existing global website builders such as Wix and Squarespace lack support for local Pakistani payment systems. Food delivery aggregators charge high commissions, reducing restaurant profitability. DineDesign addresses these gaps by offering a localized, subscription-based SaaS solution with JazzCash, Easypaisa, WhatsApp, and SMS integrations.
+Objective(s)/Aim(s)/Target(s)
+Provide an affordable SaaS platform for restaurant digitalization
+Enable local payment gateway integration
+Support multi-tenant architecture for scalability
+Offer AI-driven branding and promotion suggestions
+Scope
+The system covers:
+Website and mobile app builder
+Menu, order, and reservation management
+Payment and notification integration
+Admin dashboard and analytics
+AI branding module
+Business Goals
+Reduce dependency on third-party aggregators
+Increase restaurant profit margins
+Offer a scalable SaaS business model
+Document Conventions
+Bold text indicates system modules
+Italic text refers to external systems
+UC-X represents use cases
+API endpoints are written in CAPITAL LETTERS
+Miscellaneous
+This document follows UCP SDS Phase II template and IEEE-style design documentation.
+Overall Description
+Product Features
+Online menu browsing
+Online ordering and payment
+Order tracking
+Table reservations
+Admin dashboard
+Promotions and coupons
+AI branding suggestions
+Functional Description
+The system allows customers to browse menus and place orders through web or mobile apps. Restaurant admins manage content via dashboards, while the backend handles payments, notifications, and data storage.
+User Classes and Characteristics
+Restaurant Owner: Manages business configuration and analytics
+Restaurant Staff: Manages orders and reservations
+Customer: Places orders and reservations
+System Admin: Maintains platform and tenants
+Design and Implementation Constraints
+API rate limits of JazzCash and Easypaisa
+Internet connectivity dependency
+Data isolation for multi-tenancy
+Assumptions and Dependencies
+Stable third-party APIs
+Users have smartphones or browsers
+Accurate menu data provided by restaurants
+Technical Architecture
+Identify and describe the technical architecture of the current system.The current system uses a custom-built, cloud-based SaaS architecture designed to support multiple restaurants (tenants). It follows a multi-tier, service-oriented architecture consisting of client applications, backend services, external integrations, and centralized data storage. The architecture enables scalability, modularity, and real-time processing.
+Is the system custom-built or COTS?The system is fully custom-built to meet the specific needs of restaurants in Pakistan, including localized payment gateways and notification services.
+What type of processing is the current system responsible for?The system is responsible for real-time online processing, handling customer interactions, administrative operations, payment processing, and notification delivery.
+Is the system batch-based or online?The system is primarily online and event-driven. It does not rely on batch processing for its core functionality.
+Does the system support transaction processing or analytical reporting?The system mainly supports transaction processing such as order placement, payment confirmation, and reservation management, with limited analytical reporting for order history, promotions, and AI branding insights.
+What are the major application components?The major components include the Customer Web/Mobile Application, Restaurant Admin Dashboard, API Gateway, Menu Management Service, Order Management Service, Reservation Service, Payment Integration Service, Notification Service, and AI Branding Service.
+What data does the current system collect and manage?The system manages menu data, customer profiles, orders, reservations, payment transactions, promotions, notifications, and AI-generated branding suggestions.
+What is the basic application architecture?The system follows a layered, client-server architecture with service-based components communicating through RESTful APIs.
+What programming languages is the system built in?The frontend is built using JavaScript with React.js and React Native, while the backend services are implemented using JavaScript with Node.js and Express.
+What hardware platform supports the system?The system is supported by cloud-based server infrastructure, providing scalable compute and storage resources.
+What database platform supports the system?The system uses MongoDB Atlas as the primary database platform with multi-tenant support.
+Does the system have an end-user interface? If so, what type?Yes, the system provides browser-based web interfaces and mobile applications for both customers and restaurant administrators.
+What is the basic network architecture of the system?The system operates over the Internet using secure HTTPS communication, allowing access from any location.
+Where is the system hosted?The system is hosted on an external cloud data center infrastructure.
+Identify application components, data components, and interfacing systems.Application components include customer and admin interfaces and backend services; data components include menu, order, reservation, and user databases; interfacing systems include JazzCash, Easypaisa, WhatsApp Business API, and SMS gateways.
+Illustrate the collaboration and interaction between major components.Major components interact through the API Gateway, where client requests are routed to backend services, which process data, interact with databases or external APIs, and return responses to users.
+Identify any relevant design patterns or reuse in the system.The system uses layered architecture, service-oriented design, API gateway pattern, and reusable modules for menu, orders, and notifications.
+Identify the tools and technologies used.The system uses React.js, React Native, Node.js, Express, MongoDB Atlas, REST APIs, JazzCash and Easypaisa APIs, WhatsApp Business API, SMS gateways, and cloud hosting services.
+Application and Data Architecture
+The system follows a layered architecture:
+Presentation Layer: React.js / React Native
+Application Layer: Node.js + Express APIs
+Business Logic Layer: Order, Menu, Reservation, AI modules
+Data Layer: MongoDB Atlas (multi-tenant)
+Key data entities include User, Restaurant, MenuItem, Order, Reservation, Payment, and Promotion.
+Decision Table:
+Conditions
+Rule 1
+Rule 2
+Rule 3
+Rule 4
+Sales Performance
+Low
+Low
+High
+High
+Customer Feedback
+Poor
+Good
+Poor
+Good
+Actions
+Suggest Menu Discount
+X
+X
+Suggest New UI Template
+X
+X
+Suggest "Trending" Badge
+X
+Keep Current Strategy
+X
+Component Interactions and Collaborations
+Frontend communicates with backend via REST APIs
+Backend interacts with Payment APIs for transactions
+Notification Module triggers WhatsApp API and SMS Provider
+AI Branding Module consumes menu and promotion data
+Sequence flows include:
+Place Order Flow
+Payment Confirmation Flow
+Order Status Update Flow
+Collaboration Diagram:
+Component Diagram:
+DFD Level 0:
+DFD Level 1:
+Design Reuse and Design Patterns
+MVC pattern for backend modules
+Repository pattern for database access
+Reusable UI components for templates
+Technology Architecture
+Frontend: React.js, Next.js
+Mobile: React Native
+Backend: Node.js, Express
+Database: MongoDB Atlas
+Hosting: Cloud (AWS / Azure equivalent)
+Security: JWT, HTTPS, encryption
+Technology Architecture
+Screenshots/Prototype
+Workflow
+Swim Lane:
+State Chart:
+Create Account
+Login Account
+Welcome Login Page
+Add Template & Modify Design
+Select Payment Method
+Website Delivered
+Screens
+Dashboard
+Template Screen
+How it Work Screen
+Privacy Policy Screen
+Login Page
+Additional Information
+Wireframes and prototypes are designed
+Other Design Details
+Multi-tenant data isolation using tenant IDs
+Caching for menu data
+Role-based access control
+Revised Project Plan
+Task
+Status
+Requirements Analysis
+Completed
+System Design
+Completed
+Menu Module
+In Progress
+Ordering Module
+Not Started
+Testing & Integration
+Not Started
+Deployment
+Not Started
+References
+Sommerville, I. Software Engineering, 10th Ed.
+Pressman, R. Software Engineering, 8th Ed.
+JazzCash & Easypaisa Developer Docs
+MongoDB Atlas Documentation
+Appendix A: Glossary
+SaaS: Software as a Service
+JWT: JSON Web Token
+UC: Use Case
+API: Application Programming Interface
+DFD: Data Flow Diagram
+HTTPS: Hyper Text Transfer Protocol
+Appendix B: IV & V Report
+(Independent verification & validation)
+IV & V Resource
+NameSignature
+Mohid Saleem Bhatti
+Amir Safdar
+Muhammad Fahad Azhar
+S#
+Defect Description
+Origin Stage
+Status
+Fix Time
+Hours
+Minutes
+1
+Online payment via JazzCash failed
+Integration
+Fixed
+2
+30
+2
+Order status not updating in kitchen view
+Coding
+Fixed
+1
+45
+3
+Reservation module double-books table
+Testing
+Open
+-
+-
+4
+Push notification not delivered via WhatsApp API
+Integration
+Fixed
+0
+50
+5
+AI branding suggestions show wrong category
+Coding
+Fixed
+1
+20
+6
+Menu item image not loading in website
+Coding
+Open
+-
+-
+Table 1: List of non-trivial defects
+This document has been adapted from the following:
+Previous project templates at UCP
+High-level Technical Design, Centers for Medicare & Medicaid Services. (www.cms.gov)

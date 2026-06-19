@@ -1,0 +1,473 @@
+BSSE FINAL PROJECT
+<SRS>
+<DINEDESIGN: SAAS PLATFORM FOR RESTAURANT WEBSITE TEMPLATES>
+Project Advisor
+<Prof. Khizer Hayat>
+Presented by:
+Group ID: SE-05
+Registration #
+Student Name
+Primary Responsibility
+L1F22BSSE0006
+Mohid Saleem Bhatti
+Backend Development, API Server, Payment Integrations
+L1F22BSSE0012
+Amir Safdar
+Mobile App Development (React Native), Notification System
+L1F22BSSE0022
+Muhammad Fahad Azhar
+Website Builder, Admin Dashboard, UI/UX Design
+Faculty of Information Technology & Computer Science
+University of Central Punjab
+Software Requirements Specification
+Version <Version 1.0>
+< Dine Design:
+SaaS Platform for Restaurant Website Templates >
+Advisor: <Prof. Khizer Hayat>
+Group <Group ID>
+Member Name
+Primary Responsibility
+L1F22BSSE0006
+Backend Development, API Server, Payment Integrations
+L1F22BSSE0012
+Mobile App Development (React Native / Flutter), Notification System
+L1F22BSSE0022
+Website Builder, Admin Dashboard, UI/UX Design, AI Branding Module
+Table of Contents
+Table of Contents1
+Revision History3
+Previous Phases Feedback3
+Abstract4
+1.Introduction and Background1
+1.1Product (Problem Statement)1
+1.2Background1
+1.3Scope1
+1.4Objective(s)/Aim(s)/Target(s)1
+1.5Challenges1
+1.6Learning Outcomes2
+1.7Nature of End Product2
+1.8Completeness Criteria2
+1.9Business Goals2
+1.10Related Work/ Literature Survey/ Literature Review2
+1.11Document Conventions2
+2.Overall Description4
+2.1Product Features4
+2.2User Classes and Characteristics4
+2.3Operating Environment4
+2.4Design and Implementation Constraints4
+2.5Assumptions and Dependencies4
+3.Functional Requirements5
+3.1View Menu5
+3.2Place Order5
+3.3Track Order5
+3.4Reserve Table5
+3.5Admin Manages Menu6
+3.6Admin Manages Order6
+3.7Promotion & Coupons6
+3.8AI Branding Suggestions7
+3.9Requirements Analysis and Modeling7
+4.Nonfunctional Requirements13
+4.1Performance Requirements13
+4.2Safety Requirements13
+4.3Security Requirements13
+4.4Additional Software Quality Attributes13
+5.Other Requirements14
+Database Requirements:14
+oMulti-tenant support in MongoDB Atlas.14
+oDaily backup and disaster recovery plan.14
+External Interface Requirements:14
+oPayment APIs (JazzCash, Easypaisa)14
+oNotification APIs (WhatsApp Business API, SMS Provider)14
+Internationalization Requirements:14
+oSupport English and Urdu languages for menu, website, and notifications.14
+Legal & Compliance Requirements:14
+oPayment processing must comply with local financial regulations.14
+oUser data storage must comply with privacy policies.14
+Reuse Objectives:14
+oModules should be designed to allow reuse in future restaurant SaaS projects.14
+6.Revised Project Plan14
+7.References15
+1.Sommerville, Ian. Software Engineering, 10th Edition. Pearson, 2015.15
+2.Pressman, Roger S. Software Engineering: A Practitioner’s Approach, 8th Edition. McGraw-Hill, 2014.15
+3.JazzCash Payment Gateway Documentation, https://www.jazzcash.com.pk/developer15
+4.Easypaisa Developer Documentation, https://www.easypaisa.com.pk/developer15
+5.WhatsApp Business API Documentation, https://developers.facebook.com/docs/whatsapp15
+6.MongoDB Atlas Documentation, https://www.mongodb.com/cloud/atlas15
+Appendix A: Glossary17
+Appendix B: IV & V Report18
+Revision History
+Name
+Date
+Reason For Changes
+Version
+SE-05
+17-11-2025
+Initial SRS Creation
+1.0
+Previous Phases Feedback
+Project Idea : Approved
+Abstract
+DineDesign is a multi-tenant SaaS platform that enables restaurants to build their own website and mobile app, manage their online menu, accept online orders, process payments, and handle reservations. The system integrates with JazzCash, Easypaisa, WhatsApp API, and SMS Gateways, providing a unified and localized digital solution for Pakistan’s restaurant industry.
+The platform includes the Menu Management Module, Ordering Module, Reservation Module, Loyalty Module, Notification Module, Admin Dashboard, and AI Branding Module.
+Introduction and Background
+Product (Problem Statement)
+Restaurants in Pakistan cannot easily create online digital presence with local payment integration. They rely on expensive aggregator platforms, reducing profit margins.
+DineDesign provides an integrated SaaS solution enabling online menus, ordering, reservations, AI branding, and analytics.
+Background
+Local restaurant owners lack affordable, easy-to-use digital platforms. International platforms like Wix or Squarespace do not support JazzCash or Easypaisa, and aggregators charge 25–35% commissions.
+Scope
+This System includes:
+Menu Management Module
+Ordering Module
+Reservation Module
+Payment Integration Module
+Admin Dashboard
+Notification Module
+AI Branding Module
+Website builder for restaurant websites
+Integration with JazzCash, Easypaisa, WhatsApp API, and SMS Provider
+Objective(s)/Aim(s)/Target(s)
+Provide ready-made website templates
+Enable restaurants to manage menu, orders, reservations
+Provide payment integration
+Enable AI branding
+Support analytics and promotions
+Challenges
+Integration with local payment APIs (JazzCash, Easypaisa)
+WhatsApp Business API verification
+Multi-tenant data isolation
+Scalable notification system
+Learning Outcomes
+Understanding SaaS architecture
+Integration of external APIs
+Design and implement multi-tenant systems
+Use case and sequence modeling
+Nature of End Product
+Cloud-hosted SaaS platform supporting web and mobile apps for restaurants, with modular architecture (Menu Management, Ordering, Reservation, AI Branding, etc.).
+Completeness Criteria
+All UC-X functionalities implemented
+Integration with payment gateways working
+Admin dashboard operational
+Notifications sent successfully
+Business Goals
+Reduce dependency on aggregators
+Increase restaurant profitability
+Provide local-language SaaS solutions
+Related Work/ Literature Survey/ Literature Review
+Wix, Squarespace, WordPress: Global solutions, limited local payment support
+Aggregators like Foodpanda: High commission rates
+DineDesign focuses on SaaS subscription + local integrations
+Document Conventions
+Bold text → module names
+Italic text → external systems
+API routes → CAPITAL LETTERS
+Use cases → UC-X
+Overall Description
+Product Features
+Browse menu (UC-1)
+Place orders online (UC-2)
+Track orders (UC-3)
+Reserve tables (UC-4)
+Admin manages menu (UC-6)
+Admin manages orders (UC-7)
+Promotions and coupons (UC-8)
+AI branding suggestions (UC-10)
+User Classes and Characteristics
+User Type
+Description
+Restaurant Owner
+Manages branches, menus, orders
+Restaurant Manager/Staff
+Handles daily operations
+Customer
+Uses mobile app or website
+System Administrator
+Maintains SaaS platform
+Operating Environment
+Frontend: React.js / Next.js
+Backend: Node.js + Express
+Database: MongoDB
+Mobile: React Native
+Payment APIs: JazzCash, Easypaisa
+Notification APIs: WhatsApp Business API, SMS
+Design and Implementation Constraints
+API rate limits for payment gateways
+Internet availability
+Browser compatibility
+Assumptions and Dependencies
+Users have smartphones or desktops
+Payment APIs remain stable
+Restaurants provide accurate menu data
+Functional Requirements
+View Menu
+Field
+Details
+Identifier
+UC-1
+Purpose
+Let customers browse menu items and categories with availability and prices.
+Priority
+High
+Pre-conditions
+Customer can access website/app; menu exists for tenant.
+Post-conditions
+Menu displayed; items can be added to cart; state cached for performance.
+Table 1: UC-1
+Place Order
+Field
+Details
+Identifier
+UC-2
+Purpose
+Let customers select items, add to cart, checkout, and complete payment.
+Priority
+High
+Pre-conditions
+Customer logged in; items in cart; payment method available.
+Post-conditions
+Order created; payment confirmed via JazzCash or Easypaisa; order status updated.
+Table 2: UC-2
+Track Order
+Field
+Details
+Identifier
+UC-3
+Purpose
+Let customers track real-time order status.
+Priority
+High
+Pre-conditions
+Order has been placed and confirmed.
+Post-conditions
+Current order status displayed; estimated delivery time shown.
+Table 3: UC-3
+Reserve Table
+Field
+Details
+Identifier
+UC-4
+Purpose
+Let customers book tables for a specific date/time and number of people.
+Priority
+Medium
+Pre-conditions
+Customer logged in; table availability exists.
+Post-conditions
+Reservation confirmed; table marked occupied in system.
+Table 4: UC-4
+Admin Manages Menu
+Field
+Details
+Identifier
+UC-5
+Purpose
+Let admin add, edit, or delete menu items, categories, and prices.
+Priority
+High
+Pre-conditions
+Admin logged in; menu exists in system.
+Post-conditions
+Menu updated; changes reflected in customer view.
+Table 5: UC-5
+Admin Manages Order
+Field
+Details
+Identifier
+UC-6
+Purpose
+Let admin/kitchen staff view, update, and manage orders.
+Priority
+High
+Pre-conditions
+Orders exist; admin/kitchen logged in.
+Post-conditions
+Order status updated; notifications sent to customers.
+Table 6: UC-6
+Promotion & Coupons
+Field
+Details
+Identifier
+UC-7
+Purpose
+Let admin create and apply discounts, coupons, and promotions on menu items.
+Priority
+Medium
+Pre-conditions
+Admin logged in; menu items exist.
+Post-conditions
+Promotions active; customers see discounted prices.
+Table 7: UC-7
+AI Branding Suggestions
+Field
+Details
+Identifier
+UC-8
+Purpose
+Let system generate AI-based branding suggestions for menu, website, and promotions.
+Priority
+Medium
+Pre-conditions
+Admin logged in: menu and promotion exist.
+Post-conditions
+AI suggestions displayed; admin can accept or modify suggestions.
+Table 8: UC-8
+Requirements Analysis and Modeling
+Use Case Diagram
+Entity Relationship Diagram
+Sequence Diagram
+Class Diagram
+Performance Requirements
+The system must respond to menu browsing requests within 2 seconds for up to 500 concurrent users.
+Checkout and payment processing via JazzCash or Easypaisa should complete within 5 seconds under normal network conditions.
+Notifications (SMS or WhatsApp API) should be delivered within 30 seconds of triggering an event.
+System uptime must be at least 99.5% per month.
+Database queries (menu retrieval, order history) must return results in <1 second for single tenant queries.
+Rationale:These requirements ensure smooth user experience, prevent order delays, and maintain customer trust.
+Safety Requirements
+Customer personal data (name, contact, order history) must be securely stored in MongoDB Atlas.
+Only authorized admin users can modify menu or order data.
+Backup of orders and reservations must be performed daily to prevent data loss.
+Table reservations cannot be double-booked.
+Safeguards:
+Use secure HTTPS connections for all communications.
+Implement role-based access control for admin/staff.
+Data validation to prevent accidental overwrites or deletions.
+Security Requirements
+All API calls must be authenticated using JWT tokens.
+User passwords must be hashed and stored securely.
+Payment integration must comply with JazzCash and Easypaisa security standards.
+Admin dashboard should have 2-factor authentication for access.
+All sensitive data must be encrypted at rest and in transit.
+Rationale:These requirements ensure data privacy, prevent unauthorized access, and comply with financial regulations.
+Additional Software Quality Attributes
+Reliability: System must recover automatically from crashes; recovery time < 5 minutes.
+Scalability: Must handle up to 1000 concurrent users without performance degradation.
+Usability: Web and mobile interfaces should be intuitive; average user task completion ≤ 2 minutes.
+Maintainability: System modules (Menu Management, Ordering, Reservation) must be modular for easy updates.
+Interoperability: Must integrate with external systems (JazzCash, Easypaisa, WhatsApp API, SMS Provider).
+Testability: Each module must have unit and integration test coverage ≥ 80%.
+Portability: Web system should support Chrome, Edge, Firefox; mobile apps on Android/iOS.
+Other Requirements
+Database Requirements:
+Multi-tenant support in MongoDB Atlas.
+Daily backup and disaster recovery plan.
+External Interface Requirements:
+Payment APIs (JazzCash, Easypaisa)
+Notification APIs (WhatsApp Business API, SMS Provider)
+Internationalization Requirements:
+Support English and Urdu languages for menu, website, and notifications.
+Legal & Compliance Requirements:
+Payment processing must comply with local financial regulations.
+User data storage must comply with privacy policies.
+Reuse Objectives:
+Modules should be designed to allow reuse in future restaurant SaaS projects.
+Revised Project Plan
+Progress is tracked against the proposal Gantt chart:
+Milestones:
+Task
+Planned Dates
+Status
+Requirements Analysis
+01-Nov-2025 – 05-Nov-2025
+Completed
+System Design
+06-Nov-2025 – 10-Nov-2025
+Completed
+Implementation: Menu Module
+11-Nov-2025 – 15-Nov-2025
+In Progress
+Implementation: Ordering Module
+16-Nov-2025 – 20-Nov-2025
+Not Started
+Integration & Testing
+21-Nov-2025 – 25-Nov-2025
+Not Started
+Deployment
+26-Nov-2025 – 28-Nov-2025
+Not Started
+References
+Sommerville, Ian. Software Engineering, 10th Edition. Pearson, 2015.
+Pressman, Roger S. Software Engineering: A Practitioner’s Approach, 8th Edition. McGraw-Hill, 2014.
+JazzCash Payment Gateway Documentation, https://www.jazzcash.com.pk/developer
+Easypaisa Developer Documentation, https://www.easypaisa.com.pk/developer
+WhatsApp Business API Documentation, https://developers.facebook.com/docs/whatsapp
+MongoDB Atlas Documentation, https://www.mongodb.com/cloud/atlas
+Appendix A: Glossary
+Term / Acronym
+Definition
+Menu Management Module
+Handles CRUD operations for restaurant menus
+Ordering Module
+Manages customer orders and checkout
+Reservation Module
+Handles table booking and availability
+Payment Integration Module
+Integrates with JazzCash and Easypaisa
+Admin Dashboard
+Dashboard for admin management
+Notification Module
+Sends updates via WhatsApp API and SMS Provider
+AI Branding Module
+Provides AI-based branding suggestions
+UC-X
+Use Case X (e.g., UC-1 = Browse Menu)
+API
+Application Programming Interface
+SaaS
+Software as a Service
+POS
+Point of Sale
+JWT
+JSON Web Token
+KDS
+Kitchen Display System
+MongoDB Atlas
+Cloud database service
+Stripe Billing API
+External payment API
+FR-X.Y
+Functional Requirement Number
+NFR-X
+Non-Functional Requirement Number
+Appendix B: IV & V Report
+(Independent verification & validation) IV & V Resource
+NameSignature
+Mohid Saleem Bhatti
+Amir Safdar
+Muhammad Fahad Azhar
+S#
+Defect Description
+Origin Stage
+Status
+Fix Time (Hrs/Min)
+1
+Online payment via JazzCash failed
+Integration
+Fixed
+2/30
+2
+Order status not updating in kitchen view
+Coding
+Fixed
+1/45
+3
+Reservation module double-books table
+Testing
+Open
+-
+4
+Push notification not delivered via WhatsApp API
+Integration
+Fixed
+0/50
+5
+AI branding suggestions show wrong category
+Coding
+Fixed
+1/20
+6
+Menu item image not loading in website
+Coding
+Open
+-
+Table 2: List of non-trivial defects
