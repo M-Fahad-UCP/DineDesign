@@ -5,3 +5,7 @@ frontend/.env.*.local
 backend/.env
 backend/.env.local
 backend/.env.*.local
+node_modules
+
+# Claude Code workspace (worktrees, local cache) — not part of the project
+.claude/
